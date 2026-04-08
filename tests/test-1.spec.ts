@@ -58,7 +58,7 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
   const emailInput = page.getByRole('textbox', { name: 'ivan@domain.ru' });
   await expect(emailInput).toBeVisible();
   await emailInput.click();
-  await emailInput.fill('at2@at.at');
+  await emailInput.fill('at4@at.at');
 
   // 12. Проверка видимости роли сотрудника
   await expect(page.getByRole('textbox', { name: 'Сотрудник – ГО' })).toBeVisible();
@@ -66,9 +66,16 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
   // 13. Сохранение менеджера
   await page.getByRole('button', { name: 'Сохранить' }).click();
 
+  await expect(page).toHaveURL(
+    'https://admin.itoolabs-stage2.exolve.ru/#/settings/managers?sortOrder=asc&sortBy=name',
+    {
+      timeout: 30000,
+    },
+  );
+
   // 14. Выход из системы
-  // await page.locator('path').nth(2).click();
-  // await page.getByRole('button', { name: 'Выйти', exact: true }).click();
+  //await page.locator('path').nth(2).click();
+  //await page.getByRole('button', { name: 'Выйти', exact: true }).click();
 
   // 15. Открыть на страницу авторизации менеджера
   await page.goto('https://manager.itoolabs-stage2.exolve.ru');
@@ -76,7 +83,7 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
   // 16. Ввод логина сотрудника
   const login1Input = page.getByRole('textbox', { name: 'ivan@domain.ru' });
   await login1Input.click();
-  await login1Input.fill('at2@at.at');
+  await login1Input.fill('at4@at.at');
 
   // 17. Ввод пароля сотрудника
   const password2Input = page.locator('input[type="password"]');
@@ -100,4 +107,26 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
 
   // 22. Проверка наличия поля Поиска по менеджеру
   await expect(page.getByRole('main')).toContainText('Поиск по менеджеру');
+
+  // 23. Переход на экран Менеджеров
+  await page.goto(
+    'https://admin.itoolabs-stage2.exolve.ru/#/settings/managers?sortOrder=asc&sortBy=name',
+  );
+
+  // 24. Поиск сотрудника
+  await page.getByRole('textbox').click();
+  await page.getByRole('textbox').fill('at4');
+  await page.getByRole('textbox').press('Enter');
+
+  // 25. Удаление сотрудника
+  await page.getByRole('cell', { name: 'Менеджер at4@at.at' }).click();
+  await page.getByText('Удалить менеджера').click();
+  await page.getByRole('button', { name: 'Удалить' }).click();
+
+  await expect(page).toHaveURL(
+    'https://admin.itoolabs-stage2.exolve.ru/#/settings/managers?sortOrder=asc&sortBy=name',
+    {
+      timeout: 30000,
+    },
+  );
 });
