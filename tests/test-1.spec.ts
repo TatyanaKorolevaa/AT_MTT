@@ -31,7 +31,7 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
   await page.getByRole('button', { name: 'Ещё' }).click();
   await page.getByText('Настройки', { exact: true }).click();
 
-  // 6. Отображение экрана Домены
+  // 6. Отображение экрана Настройки
   await expect(page).toHaveURL(
     'https://admin.itoolabs-stage2.exolve.ru/#/settings/managers?sortOrder=asc&sortBy=name',
     { timeout: 10000 },
@@ -66,16 +66,13 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
   // 13. Сохранение менеджера
   await page.getByRole('button', { name: 'Сохранить' }).click();
 
+  // 14. Отображение экрана Настройки
   await expect(page).toHaveURL(
     'https://admin.itoolabs-stage2.exolve.ru/#/settings/managers?sortOrder=asc&sortBy=name',
     {
       timeout: 30000,
     },
   );
-
-  // 14. Выход из системы
-  //await page.locator('path').nth(2).click();
-  //await page.getByRole('button', { name: 'Выйти', exact: true }).click();
 
   // 15. Открыть на страницу авторизации менеджера
   await page.goto('https://manager.itoolabs-stage2.exolve.ru');
@@ -95,9 +92,10 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
 
   // 19. Отображение экрана Клиенты
 
-  await expect(page).toHaveURL('https://manager.itoolabs-stage2.exolve.ru/#/', {
+  await expect(page).toHaveURL('https://manager.itoolabs-stage2.exolve.ru/#/clients-list', {
     timeout: 30000,
   });
+
   // 20. Проверка наличия поля Поиска по клиентам
   await expect(page.getByRole('img').nth(3)).toBeVisible();
 
@@ -108,7 +106,7 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
   // 22. Проверка наличия поля Поиска по менеджеру
   await expect(page.getByRole('main')).toContainText('Поиск по менеджеру');
 
-  // 23. Переход на экран Менеджеров
+  // 23. Переход на экран Менеджеров для удаления сотрудника после выполнения теста
   await page.goto(
     'https://admin.itoolabs-stage2.exolve.ru/#/settings/managers?sortOrder=asc&sortBy=name',
   );
@@ -123,6 +121,7 @@ test('[CIT-28838] Сотрудник - ГО: Поиск по списку кли
   await page.getByText('Удалить менеджера').click();
   await page.getByRole('button', { name: 'Удалить' }).click();
 
+  // 26. Отображение экрана Настройки
   await expect(page).toHaveURL(
     'https://admin.itoolabs-stage2.exolve.ru/#/settings/managers?sortOrder=asc&sortBy=name',
     {
