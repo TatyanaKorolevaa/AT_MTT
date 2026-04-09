@@ -1,0 +1,89 @@
+# Page snapshot
+
+```yaml
+- main [ref=e4]:
+  - generic [ref=e6]:
+    - navigation [ref=e7]:
+      - iframe [ref=e9]
+      - generic [ref=e14] [cursor=pointer]: Домены
+      - generic [ref=e19] [cursor=pointer]: Телефонные номера
+      - generic [ref=e24] [cursor=pointer]: Аудит
+      - generic [ref=e29] [cursor=pointer]: Шлюзы
+      - generic [ref=e34] [cursor=pointer]: Маршруты
+      - generic [ref=e39] [cursor=pointer]: Диал‑планы
+      - generic [ref=e44] [cursor=pointer]: Настройки
+      - button "Ещё" [ref=e47] [cursor=pointer]:
+        - generic:
+          - generic: Ещё
+          - generic:
+            - img
+    - generic [ref=e49] [cursor=pointer]:
+      - paragraph [ref=e51]: Поддержка
+      - img [ref=e53]
+    - img [ref=e59] [cursor=pointer]
+  - generic [ref=e63]:
+    - generic [ref=e65]:
+      - generic [ref=e68] [cursor=pointer]:
+        - img [ref=e70]
+        - generic [ref=e74]: Менеджеры
+      - generic [ref=e77] [cursor=pointer]:
+        - img [ref=e79]
+        - generic [ref=e83]: Отделения
+      - generic [ref=e86] [cursor=pointer]:
+        - img [ref=e88]
+        - generic [ref=e91]: Подписанты оператора
+      - generic [ref=e94] [cursor=pointer]:
+        - img [ref=e96]
+        - generic [ref=e102]: Другие настройки
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - img [ref=e108] [cursor=pointer]
+        - generic [ref=e110]: Добавление нового менеджера
+      - generic [ref=e111]:
+        - article [ref=e113]:
+          - generic [ref=e114]:
+            - heading "Учетные данные" [level=3] [ref=e115]
+            - generic [ref=e116]:
+              - generic [ref=e118]: Имя *
+              - textbox "Иванов Иван" [ref=e122]: Менеджер
+            - generic [ref=e123]:
+              - generic [ref=e125]: Пароль *
+              - generic [ref=e127]:
+                - generic [ref=e129]:
+                  - textbox [ref=e130]: 1qaz2wsx
+                  - img [ref=e132] [cursor=pointer]
+                  - generic [ref=e135]: Пароль может состоять из букв, цифр и быть строкой без пробелов.
+                - button "Создать новый" [ref=e136] [cursor=pointer]:
+                  - generic [ref=e137]: Создать новый
+            - generic [ref=e138]:
+              - generic [ref=e140]: Электронная почта *
+              - generic [ref=e141]:
+                - generic [ref=e143]:
+                  - textbox "ivan@domain.ru" [ref=e144]: at4@at.at
+                  - paragraph [ref=e146]: Адрес электронной почты уже используется.
+                - generic [ref=e148]: На этот адрес будет отправлено приглашение в систему. Адрес может использоваться для входа в личный кабинет и восстановления пароля.
+            - generic [ref=e150]:
+              - generic [ref=e152]: Права в системе *
+              - generic [ref=e153]:
+                - generic [ref=e156] [cursor=pointer]:
+                  - textbox "Сотрудник – ГО" [ref=e157]
+                  - img [ref=e160]
+                - generic [ref=e162]: Может просматривать список всех клиентов, полную информацию о клиенте и номерах, историю действий, список услуг клиента и управлять ими.
+            - generic [ref=e164]:
+              - generic [ref=e167]: Личный мобильный номер
+              - generic [ref=e171]:
+                - generic [ref=e172]: +
+                - textbox "7 (999) 200-50-60" [ref=e173]:
+                  - /placeholder: 7 (999) 200-50-60
+            - generic [ref=e174]:
+              - generic [ref=e177]: Отделение
+              - generic [ref=e181] [cursor=pointer]:
+                - textbox [ref=e182]: Выберите
+                - img [ref=e185]
+        - article [ref=e187]:
+          - generic [ref=e188]:
+            - button "Сохранить" [active] [ref=e189] [cursor=pointer]:
+              - generic [ref=e190]: Сохранить
+            - button "Отменить" [ref=e191] [cursor=pointer]:
+              - generic [ref=e192]: Отменить
+```
